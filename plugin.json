@@ -14,12 +14,6 @@
     "settings_schema": {
         "header": "",
         "footer": "",
-        "settings": [{
-            "key": "availableTeams",
-            "display_name": "Available Teams",
-            "type": "text",
-            "help_text": "Input \"{team name}:{incoming webhook token}\". If enable in multiple teams, separate by comma (`,`).",
-            "placeholder": "the-team:poarfoubjfrqmxj8sggyqn97uw"
-        }]
+        "settings": []
     }
 }

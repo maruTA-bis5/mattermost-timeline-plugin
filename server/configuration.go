@@ -2,7 +2,6 @@ package main
 
 import (
 	"reflect"
-	"strings"
 
 	"github.com/pkg/errors"
 )
@@ -19,7 +18,6 @@ import (
 // If you add non-reference types to your configuration struct, be sure to rewrite Clone as a deep
 // copy appropriate for your types.
 type configuration struct {
-	availableTeams string
 }
 
 // Clone shallow copies the configuration. Your implementation may require a deep copy if
@@ -82,22 +80,4 @@ func (p *Plugin) OnConfigurationChange() error {
 	p.setConfiguration(configuration)
 
 	return nil
-}
-
-func (p *Plugin) resolveWebhookToken(teamName string) string {
-	config := p.getConfiguration().availableTeams
-	split := strings.Split(config, ",")
-	for _, teamWithToken := range split {
-		split2 := strings.Split(teamWithToken, ":")
-		if len(split2) <= 1 {
-			p.API.LogWarn("Invalid config" + teamWithToken)
-			continue
-		}
-		confTeamName := split2[0]
-		token := split2[1]
-		if teamName == confTeamName {
-			return token
-		}
-	}
-	return ""
 }
