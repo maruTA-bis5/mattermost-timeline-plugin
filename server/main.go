@@ -5,5 +5,9 @@ import (
 )
 
 func main() {
-	plugin.ClientMain(&Plugin{})
+	p := &Plugin{}
+	p.Utils = &Utils{
+		plugin: p,
+	}
+	plugin.ClientMain(p)
 }

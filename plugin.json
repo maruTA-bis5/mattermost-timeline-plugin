@@ -1,8 +1,9 @@
 {
-    "id": "com.mattermost.sample-plugin",
+    "id": "net.bis5.mattermost.timeline-bot",
     "name": "Sample Plugin",
     "description": "This plugin serves as a starting point for writing a Mattermost plugin.",
     "version": "0.1.0",
+    "min_server_version": "5.12.0",
     "server": {
         "executables": {
             "linux-amd64": "server/dist/plugin-linux-amd64",
@@ -10,12 +11,15 @@
             "windows-amd64": "server/dist/plugin-windows-amd64.exe"
         }
     },
-    "webapp": {
-        "bundle_path": "webapp/dist/main.js"
-    },
     "settings_schema": {
         "header": "",
         "footer": "",
-        "settings": []
+        "settings": [{
+            "key": "availableTeams",
+            "display_name": "Available Teams",
+            "type": "text",
+            "help_text": "Input \"{team name}:{incoming webhook token}\". If enable in multiple teams, separate by comma (`,`).",
+            "placeholder": "the-team:poarfoubjfrqmxj8sggyqn97uw"
+        }]
     }
 }

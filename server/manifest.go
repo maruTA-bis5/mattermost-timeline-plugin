@@ -4,6 +4,6 @@ var manifest = struct {
 	Id      string
 	Version string
 }{
-	Id:      "com.mattermost.sample-plugin",
+	Id:      "net.bis5.mattermost.timeline-bot",
 	Version: "0.1.0",
 }
